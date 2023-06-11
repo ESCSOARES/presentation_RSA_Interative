@@ -1,0 +1,248 @@
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #3eb6ee;
+  padding: 20px;
+}
+
+.title {
+  font-size: 32px;
+  text-align: center;
+  color: #fff;
+}
+
+main {
+  padding: 40px;
+}
+
+.content {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #3eb6ee;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.cta {
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #3eb6ee;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 18px;
+}
+
+.btn:hover {
+  background-color: #3eb6ee;
+}
+
+.typing-effect {
+  overflow: hidden; /* Esconde o conteúdo que excede o tamanho do parágrafo */
+  white-space: nowrap; /* Impede a quebra de linha */
+  border-right: 2px solid #fff; /* Simula o cursor de digitação */
+  animation: typing 3s steps(40) infinite, blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0; /* Começa sem largura (parágrafo invisível) */
+  }
+  to {
+    width: 100%; /* Termina com largura total (parágrafo totalmente visível) */
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent; /* Cursor invisível */
+  }
+  50% {
+    border-color: #fff; /* Cursor visível */
+  }
+}
+
+.fade-in3 {
+  opacity: 0; /* Define a opacidade inicial como 0 */
+  animation: fade-in 3s forwards; /* Aplica a animação de fade-in */
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0; /* Começa com opacidade 0 (parágrafo invisível) */
+  }
+  to {
+    opacity: 1; /* Termina com opacidade 1 (parágrafo totalmente visível) */
+  }
+}
+
+.fade-in4 {
+  opacity: 0; /* Define a opacidade inicial como 0 */
+  animation: fade-in 4s forwards; /* Aplica a animação de fade-in */
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0; /* Começa com opacidade 0 (parágrafo invisível) */
+  }
+  to {
+    opacity: 1; /* Termina com opacidade 1 (parágrafo totalmente visível) */
+  }
+}
+
+.fade-in5 {
+  opacity: 0; /* Define a opacidade inicial como 0 */
+  animation: fade-in 5s forwards; /* Aplica a animação de fade-in */
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0; /* Começa com opacidade 0 (parágrafo invisível) */
+  }
+  to {
+    opacity: 1; /* Termina com opacidade 1 (parágrafo totalmente visível) */
+  }
+}
+
+.fade-in6 {
+  opacity: 0; /* Define a opacidade inicial como 0 */
+  animation: fade-in 6s forwards; /* Aplica a animação de fade-in */
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0; /* Começa com opacidade 0 (parágrafo invisível) */
+  }
+  to {
+    opacity: 1; /* Termina com opacidade 1 (parágrafo totalmente visível) */
+  }
+}
+
+.fade-in7 {
+  opacity: 0; /* Define a opacidade inicial como 0 */
+  animation: fade-in 7s forwards; /* Aplica a animação de fade-in */
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0; /* Começa com opacidade 0 (parágrafo invisível) */
+  }
+  to {
+    opacity: 1; /* Termina com opacidade 1 (parágrafo totalmente visível) */
+  }
+}
+
+.fade-in8{
+  opacity: 0; /* Define a opacidade inicial como 0 */
+  animation: fade-in 8s forwards; /* Aplica a animação de fade-in */
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0; /* Começa com opacidade 0 (parágrafo invisível) */
+  }
+  to {
+    opacity: 1; /* Termina com opacidade 1 (parágrafo totalmente visível) */
+  }
+}
+
+.fade-in9 {
+  opacity: 0; /* Define a opacidade inicial como 0 */
+  animation: fade-in 9s forwards; /* Aplica a animação de fade-in */
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0; /* Começa com opacidade 0 (parágrafo invisível) */
+  }
+  to {
+    opacity: 1; /* Termina com opacidade 1 (parágrafo totalmente visível) */
+  }
+}
+
+.fade-in10 {
+  opacity: 0; /* Define a opacidade inicial como 0 */
+  animation: fade-in 10s forwards; /* Aplica a animação de fade-in */
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0; /* Começa com opacidade 0 (parágrafo invisível) */
+  }
+  to {
+    opacity: 1; /* Termina com opacidade 1 (parágrafo totalmente visível) */
+  }
+}
+
+.fade-in11 {
+  opacity: 0; /* Define a opacidade inicial como 0 */
+  animation: fade-in 11s forwards; /* Aplica a animação de fade-in */
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0; /* Começa com opacidade 0 (parágrafo invisível) */
+  }
+  to {
+    opacity: 1; /* Termina com opacidade 1 (parágrafo totalmente visível) */
+  }
+}
+
+.fade-in12 {
+  opacity: 0; /* Define a opacidade inicial como 0 */
+  animation: fade-in 12s forwards; /* Aplica a animação de fade-in */
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0; /* Começa com opacidade 0 (parágrafo invisível) */
+  }
+  to {
+    opacity: 1; /* Termina com opacidade 1 (parágrafo totalmente visível) */
+  }
+}
+.fade-in13 {
+  opacity: 0; /* Define a opacidade inicial como 0 */
+  animation: fade-in 13s forwards; /* Aplica a animação de fade-in */
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0; /* Começa com opacidade 0 (parágrafo invisível) */
+  }
+  to {
+    opacity: 1; /* Termina com opacidade 1 (parágrafo totalmente visível) */
+  }
+}
+
+.fade-in14 {
+  opacity: 0; /* Define a opacidade inicial como 0 */
+  animation: fade-in 14s forwards; /* Aplica a animação de fade-in */
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0; /* Começa com opacidade 0 (parágrafo invisível) */
+  }
+  to {
+    opacity: 1; /* Termina com opacidade 1 (parágrafo totalmente visível) */
+  }
+}

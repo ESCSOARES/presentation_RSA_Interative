@@ -1,0 +1,83 @@
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #111;
+    color: #eee;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #111;
+    color: #eee;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .slide1 {
+    display: block;
+    background-color: #03204a;
+    color: #fff;
+    height: 100vh;
+    text-align: center;
+    padding-top: 100px;
+  }
+  
+  .slide1 h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  .slide1 p {
+    font-size: 24px;
+  }
+  
+  .slide2 {
+    background-color: #222;
+  }
+  
+  .slide3 {
+    background-color: #333;
+  }
+  
+  .next-button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .next-button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Estilos da capa */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url("caminho/para/sua/imagem.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+  }
+  
+  .cover img {
+    width: 200px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .cover h1 {
+    font-size: 36px;
+  }
+  
+  .cover p {
+    font-size: 24px;
+  }
+  

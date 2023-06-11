@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apresentação Interativa</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url(images/background.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: rgb(9, 94, 7);;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .explanation {
+      margin-bottom: 20px;
+      opacity: 1;
+      transition: opacity 0.5s;
+    }
+
+
+    .explanation.hidden {
+      opacity: 0;
+    }
+
+    .explanation h2 {
+      font-size: 24px;
+      color: rgb(9, 94, 7);;
+      margin-top: 0;
+    }
+
+    .explanation p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .code-animation {
+      background-color: rgba(0, 0, 0, 0);
+      color: #0f0;
+      padding: 10px;
+      white-space: pre;
+      overflow: hidden;
+    }
+
+    .code-animation p {
+      margin: 0;
+    }
+
+    .code-animation p:first-child {
+      margin-top: -30px;
+    }
+
+    .fade-in {
+    opacity: 0;
+    animation: fade-in-animation 3s ease-in-out forwards;
+  }
+  
+  @keyframes fade-in-animation {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .typewriter {
+    overflow: hidden;
+    border-right: .15em solid orange; /* Cor da "linha de digitação" */
+    white-space: nowrap;
+    margin: 0 auto; /* Centralizar o parágrafo */
+     /* Espaçamento entre letras */
+    animation:
+      typing 3.5s steps(40, end),
+      blink-caret .75s step-end infinite;
+  }
+  
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange }
+  }
+
+  .scroll-down-arrow {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #0f0;;
+    margin: 0 auto;
+    transform: rotate(180deg);
+    animation: arrow-bounce 1s infinite;
+  }
+  
+  @keyframes arrow-bounce {
+    0% {
+      transform: rotate(360deg) translateY(0);
+    }
+    50% {
+      transform: rotate(360deg) translateY(10px);
+    }
+    100% {
+      transform: rotate(360deg) translateY(0);
+    }
+  }
+  
+    .image-container {
+    display: flex;
+  }
+
+  .typing-effect {
+    overflow: hidden; /* Esconde o conteúdo que excede o tamanho do parágrafo */
+    white-space: nowrap; /* Impede a quebra de linha */
+    border-right: 2px solid #fff; /* Simula o cursor de digitação */
+    animation: typing 3s steps(40) infinite, blink-caret 0.75s step-end infinite;
+  }
+  
+  @keyframes typing {
+    from {
+      width: 0; /* Começa sem largura (parágrafo invisível) */
+    }
+    to {
+      width: 100%; /* Termina com largura total (parágrafo totalmente visível) */
+    }
+  }
+  
+  @keyframes blink-caret {
+    from, to {
+      border-color: transparent; /* Cursor invisível */
+    }
+    50% {
+      border-color: #fff; /* Cursor visível */
+    }
+  }
+    
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #eee;
+      margin: 0;
+      padding: 0;
+    }
+
+    .slide {
+      display: none;
+      height: 100vh;
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    .slide1 {
+      display: block;
+    }
+
+    .slide h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .slide p {
+      font-size: 24px;
+    }
+
+    .next-button {
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .next-button:hover {
+      background-color: #45a049;
+    }
+
+    /* Estilos da capa */
+    .cover {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-image: url("images/wallhack.jpg");
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+    }
+
+    .cover img {
+      width: 200px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    .cover h1 {
+      font-size: 100px;
+    }
+
+    .cover p {
+      font-size: 25px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="slide slide1">
+    <div class="cover">
+      <h1>ALGORÍTMO DE CRIPTOGRAFIA <span style="color: chartreuse;">RSA</span></h1>
+      <div>
+      <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif"; style="color: #fff;">APERTA O START AÍ VACILÃO!</h5>
+      <div>
+        
+    <a href="2-introducao.html" style="font-size: 26px; padding: 20px 30px; background-color: #09ff007a; color: #fff; text-decoration: none; border-radius: 6px;">START</a>
+      </div>
+    
+  </div> 
+  <div class="explanation.hidden">
+    <div class="code-animation">
+
+      <p class="typing-effect">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</p>   
+      <p>Feito Por: @edimarsoaresz</p>
+
+      <p class="typing-effect">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</p>    
+    </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function showSlide(index) {
+      slides.forEach((slide) => {
+        slide.style.display = 'none';
+      });
+      slides[index].style.display = 'block';
+    }
+
+    function nextSlide() {
+      currentSlide++;
+      if (currentSlide >= slides.length) {
+        currentSlide = 0;
+      }
+      showSlide(currentSlide);
+    }
+
+    showSlide(currentSlide);
+  </script>
+</body>
+
+</html>

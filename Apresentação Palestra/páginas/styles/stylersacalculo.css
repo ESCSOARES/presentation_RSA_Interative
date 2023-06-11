@@ -1,0 +1,87 @@
+body {
+    background-color: #000;
+    color: #0f0;
+    font-family: 'Courier New', monospace;
+  }
+  
+  h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  label {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  input[type="text"],
+  input[type="number"] {
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #0f0;
+    background-color: #000;
+    color: #0f0;
+  }
+  
+  button {
+    padding: 8px 16px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #0f0;
+    background-color: #000;
+    color: #0f0;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0f0;
+    color: #000;
+  }
+  
+  div {
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    font-size: 18px;
+  }
+  
+  p {
+    font-size: 16px;
+  }
+  .fade-in {
+    opacity: 0;
+    animation: fade-in-animation 3s ease-in-out forwards;
+  }
+  
+  @keyframes fade-in-animation {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .typewriter {
+    overflow: hidden;
+    border-right: .15em solid orange; /* Cor da "linha de digitação" */
+    white-space: nowrap;
+    margin: 0 auto; /* Centralizar o parágrafo */
+    letter-spacing: .15em; /* Espaçamento entre letras */
+    animation:
+      typing 3.5s steps(40, end),
+      blink-caret .75s step-end infinite;
+  }
+  
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange }
+  }
+  
+  

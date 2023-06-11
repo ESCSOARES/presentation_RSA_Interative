@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RSA Encryption</title>
+  <link rel="stylesheet" href="styles/stylersacalculo.css"">
+
+</head>
+
+<body>
+  <div class="fade-in">
+    <h1>CRIPTOGRAFANDO COM RSA</h1>
+  <center>          
+  <div>
+            
+<div>
+    <label for="primeP">Valor de P:</label>
+    <input type="number" id="primeP">
+  </div>
+
+  <div>
+    <label for="primeQ">Valor de Q:</label>
+    <input type="number" id="primeQ">
+  </div>
+
+  <div>
+    <label for="message">Mensagem:</label>
+    <input type="text" id="message">
+  </div>
+
+  <div>
+    <button onclick="encryptMessage()">Criptografar</button>
+    
+  </div>
+
+  <div>
+    <h2>Mensagem Criptografada:</h2>
+    <p id="encryptedMessage"></p>
+  </div>
+  <button onclick="decryptMessage()">Descriptografar</button>
+  <div>
+    <h2>Mensagem Descriptografada:</h2>
+    <p id="decryptedMessage"></p>
+  </div>
+
+  <script>
+    function generateKeyPair(p, q) {
+      const n = p * q;
+      const phi = (p - 1) * (q - 1);
+      let e = 2;
+
+      while (e < phi) {
+        if (gcd(e, phi) === 1) {
+          break;
+        }
+        e++;
+      }
+
+      const d = multiplicativeInverse(e, phi);
+
+      return {
+        publicKey: { e, n },
+        privateKey: { d, n }
+      };
+    }
+
+    function gcd(a, b) {
+      if (b === 0) {
+        return a;
+      }
+      return gcd(b, a % b);
+    }
+
+    function multiplicativeInverse(a, m) {
+      const { x } = extendedEuclidean(a, m);
+      return (x % m + m) % m;
+    }
+
+    function extendedEuclidean(a, b) {
+      if (b === 0) {
+        return { x: 1, y: 0 };
+      }
+
+      const { x: prevX, y: prevY } = extendedEuclidean(b, a % b);
+      const quotient = Math.floor(a / b);
+
+      const x = prevY;
+      const y = prevX - quotient * prevY;
+
+      return { x, y };
+    }
+
+    function encrypt(message, publicKey) {
+      const { e, n } = publicKey;
+      const encryptedMessage = [];
+
+      for (let i = 0; i < message.length; i++) {
+        const charCode = message.charCodeAt(i);
+        const encryptedCharCode = modPow(charCode, e, n);
+        encryptedMessage.push(encryptedCharCode);
+      }
+
+      return encryptedMessage;
+    }
+
+    function decrypt(encryptedMessage, privateKey) {
+      const { d, n } = privateKey;
+      let decryptedMessage = '';
+
+      for (let i = 0; i < encryptedMessage.length; i++) {
+        const encryptedCharCode = encryptedMessage[i];
+        const decryptedCharCode = modPow(encryptedCharCode, d, n);
+        const decryptedChar = String.fromCharCode(decryptedCharCode);
+        decryptedMessage += decryptedChar;
+      }
+
+      return decryptedMessage;
+    }
+
+    function modPow(base, exponent, modulus) {
+      if (modulus === 1) {
+        return 0;
+      }
+
+      let result = 1;
+      base = base % modulus;
+
+      while (exponent > 0) {
+        if (exponent % 2 === 1) {
+          result = (result * base) % modulus;
+        }
+
+        exponent = Math.floor(exponent / 2);
+        base = (base * base) % modulus;
+      }
+
+      return result;
+    }
+
+    function encryptMessage() {
+      const primeP = parseInt(document.getElementById('primeP').value);
+      const primeQ = parseInt(document.getElementById('primeQ').value);
+      const message = document.getElementById('message').value;
+
+      const keyPair = generateKeyPair(primeP, primeQ);
+      const publicKey = keyPair.publicKey;
+      const privateKey = keyPair.privateKey;
+
+      const encryptedMessage = encrypt(message, publicKey);
+
+      document.getElementById('encryptedMessage').textContent = JSON.stringify(encryptedMessage);
+    }
+
+    function decryptMessage() {
+      const primeP = parseInt(document.getElementById('primeP').value);
+      const primeQ = parseInt(document.getElementById('primeQ').value);
+      const encryptedMessage = JSON.parse(document.getElementById('encryptedMessage').textContent);
+
+      const keyPair = generateKeyPair(primeP, primeQ);
+      const publicKey = keyPair.publicKey;
+      const privateKey = keyPair.privateKey;
+
+      const decryptedMessage = decrypt(encryptedMessage, privateKey);
+
+      document.getElementById('decryptedMessage').textContent = decryptedMessage;
+    }
+  </script>
+  </div>
+  </center>
+  </div>
+  <div>
+ 
+  
+
+
+  <p style="color: aliceblue;" class="typewriter">obs: os números precisam ser primos</p>
+  <p style="color: aliceblue;" class="typewriter">segue o exemplo:</p>
+  <p style="color: aliceblue;" class="typewriter">P: 67, Q: 71</p>
+  <p style="color: aliceblue;" class="typewriter">P: 79, Q: 83</p>
+  <p style="color: aliceblue;" class="typewriter">P: 109, Q: 113</p>
+  <p style="color: aliceblue;" class="typewriter">P: 131, Q: 137</p>
+  <p style="color: aliceblue;" class="typewriter">P: 149, Q: 151</p>
+  <p style="color: aliceblue;" class="typewriter">P: 173, Q: 179</p>
+  <p style="color: aliceblue;" class="typewriter">P: 193, Q: 197</p>
+  <p style="color: aliceblue;" class="typewriter">P: 223, Q: 227</p>
+  <p style="color: aliceblue;" class="typewriter">P: 251, Q: 257</p>
+  <p style="color: aliceblue;" class="typewriter">P: 281, Q: 283</p>
+  <p style="color: aliceblue;" class="typewriter">P: 307, Q: 311</p>
+  <p style="color: aliceblue;" class="typewriter">P: 337, Q: 347</p>
+  <p style="color: aliceblue;" class="typewriter">P: 367, Q: 373</p>
+  <p style="color: aliceblue;" class="typewriter">P: 401, Q: 409</p>
+  <p style="color: aliceblue;" class="typewriter">P: 431, Q: 433</p>
+  
+  <div>
+    <center><a href="5-thankyou.html" style="font-size: 16px; padding: 10px 20px; background-color: rgb(14, 138, 12); color: #fff; text-decoration: none; border-radius: 8px;">FINALIZAR</a>
+    </center>
+    </div>
+
+</body>
+
+</html>

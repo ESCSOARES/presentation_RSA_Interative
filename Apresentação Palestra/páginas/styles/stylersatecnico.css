@@ -1,0 +1,145 @@
+/* Reset de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Estilo do body */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+  }
+  
+  /* Estilo do header */
+  header {
+    background-color: #20f719;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Estilo do título */
+  .heading {
+    color: #000000;
+    font-size: 32px;
+  }
+  
+  /* Estilo das sections */
+  .section {
+    background-color: #000000;
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilo do título das sections */
+  .section-heading {
+    color: #20f719;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilo dos parágrafos das sections */
+  .section-paragraph {
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    
+  }
+  
+  /* Estilo do link */
+  .section-link {
+    color: #20f719;
+    text-decoration: none;
+  }
+  
+  /* Estilo do link ao passar o mouse */
+  .section-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Estilo do rodapé */
+  footer {
+    background-color: #20f719;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Estilo do texto do rodapé */
+  .footer-text {
+    color: #ffffff;
+    font-size: 14px;
+  }
+
+  .typewriter {
+    overflow: hidden;
+    border-right: .15em solid orange; /* Cor da "linha de digitação" */
+    white-space: nowrap;
+    margin: 0 auto; /* Centralizar o parágrafo */
+    letter-spacing: .15em; /* Espaçamento entre letras */
+    animation:
+      typing 3.5s steps(40, end),
+      blink-caret .75s step-end infinite;
+  }
+  
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 70% }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange }
+  }
+  
+  .typing-effect {
+    overflow: hidden; /* Esconde o conteúdo que excede o tamanho do parágrafo */
+    white-space: nowrap; /* Impede a quebra de linha */
+    border-right: 2px solid #ffffff; /* Simula o cursor de digitação */
+    animation: typing 3s steps(40) infinite, blink-caret 0.75s step-end infinite;
+  }
+  
+  @keyframes typing {
+    from {
+      width: 0; /* Começa sem largura (parágrafo invisível) */
+    }
+    to {
+      width: 100%; /* Termina com largura total (parágrafo totalmente visível) */
+    }
+  }
+  
+  @keyframes blink-caret {
+    from, to {
+      border-color: transparent; /* Cursor invisível */
+    }
+    50% {
+      border-color: #000000; /* Cursor visível */
+    }
+  }
+
+  .scroll-down-arrow {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #20f719;
+    margin: 0 auto;
+    transform: rotate(180deg);
+    animation: arrow-bounce 1s infinite;
+  }
+  
+  @keyframes arrow-bounce {
+    0% {
+      transform: rotate(360deg) translateY(0);
+    }
+    50% {
+      transform: rotate(360deg) translateY(10px);
+    }
+    100% {
+      transform: rotate(360deg) translateY(0);
+    }
+  }
+  
+  

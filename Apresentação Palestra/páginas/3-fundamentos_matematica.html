@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Algoritmo RSA - Explicações</title>
+  <style>
+
+body {
+      font-family: Arial, sans-serif;
+      background-image: url(images/wallhack.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: rgb(9, 94, 7);;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .explanation {
+      margin-bottom: 20px;
+      opacity: 1;
+      transition: opacity 0.5s;
+    }
+
+
+    .explanation.hidden {
+      opacity: 0;
+    }
+
+    .explanation h2 {
+      font-size: 24px;
+      color: rgb(9, 94, 7);;
+      margin-top: 0;
+    }
+
+    .explanation p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .code-animation {
+      background-color: black;
+      color: #0f0;
+      padding: 10px;
+      white-space: pre;
+      overflow: hidden;
+    }
+
+    .code-animation p {
+      margin: 0;
+    }
+
+    .code-animation p:first-child {
+      margin-top: -20px;
+    }
+
+    .fade-in {
+    opacity: 0;
+    animation: fade-in-animation 3s ease-in-out forwards;
+  }
+  
+  @keyframes fade-in-animation {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .typewriter {
+    overflow: hidden;
+    border-right: .15em solid orange; /* Cor da "linha de digitação" */
+    white-space: nowrap;
+    margin: 0 auto; /* Centralizar o parágrafo */
+     /* Espaçamento entre letras */
+    animation:
+      typing 3.5s steps(40, end),
+      blink-caret .75s step-end infinite;
+  }
+  
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange }
+  }
+
+  .scroll-down-arrow {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #0f0;;
+    margin: 0 auto;
+    transform: rotate(180deg);
+    animation: arrow-bounce 1s infinite;
+  }
+  
+  @keyframes arrow-bounce {
+    0% {
+      transform: rotate(360deg) translateY(0);
+    }
+    50% {
+      transform: rotate(360deg) translateY(10px);
+    }
+    100% {
+      transform: rotate(360deg) translateY(0);
+    }
+  }
+  
+    .image-container {
+    display: flex;
+  }
+
+  .typing-effect {
+    overflow: hidden; /* Esconde o conteúdo que excede o tamanho do parágrafo */
+    white-space: nowrap; /* Impede a quebra de linha */
+    border-right: 2px solid #fff; /* Simula o cursor de digitação */
+    animation: typing 3s steps(40) infinite, blink-caret 0.75s step-end infinite;
+  }
+  
+  @keyframes typing {
+    from {
+      width: 0; /* Começa sem largura (parágrafo invisível) */
+    }
+    to {
+      width: 100%; /* Termina com largura total (parágrafo totalmente visível) */
+    }
+  }
+  
+  @keyframes blink-caret {
+    from, to {
+      border-color: transparent; /* Cursor invisível */
+    }
+    50% {
+      border-color: #fff; /* Cursor visível */
+    }
+  }
+    
+  </style>
+</head>
+
+<body>
+
+
+  <div class="container">
+    <div class="explanation">
+      <center><h2>Mini Tutorial</h2></center>
+      <div class="code-animation">
+        <p class="typing-effect">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</p>
+      <p class="fade-in">
+        O Conteúdo a Seguir Terá 6 Tópicos, Após Finalizar Cada um, Clique em "Próxima", OK?!
+      </p>
+      <p class="typing-effect">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</p> 
+      </div>
+    </div>
+
+
+    <div class="container">
+      <div class="explanation">
+        <h2>Geração das Chaves</h2>
+        <div class="code-animation">
+          <p>//Devem ser escolhidos 2 números primos aleatoriamente com, no mínimo, 150 dígitos decimais cada um
+              maior que 512 bits</p>
+          <p class="fade-in">
+<p class="typewriter">A geração das chaves pública e privada no algoritmo RSA envolve os seguintes passos:</p>
+                                                            
+<p class="fade-in">Escolha de números primos: Selecionam-se dois números primos grandes,
+geralmente chamados de: </p>
+<p class="fade-in" style="color: rgb(175, 102, 243);">            "p" e "q".</p>
+
+<p class="fade-in">Esses números devem ser mantidos em sigilo, pois são fundamentais para a segurança do algoritmo.</p>
+
+<p class="fade-in">Cálculo do módulo "n": Calcula-se o valor do módulo "n" como o produto dos números primos
+"p" e "q". O módulo "n" é utilizado tanto na chave pública quanto na chave privada. Ele deve ser um
+número muito grande para dificultar a sua fatoração.</p>
+
+  </div>
+  
+</div>
+
+  <div class="container">
+    <div class="explanation">
+      <h2>Geração das Chaves</h2>
+      <div class="code-animation">
+<p class="fade-in">//Devem ser escolhidos 2 números primos aleatoriamente com, no mínimo, 150 dígitos decimais
+cada um maior que 512 bits</p>
+<p class="typing-effect">exemplo de chave abaixo (serve para chave pública e privada)</p>
+<p class="fade-in" style="color: rgb(255, 90, 255);">
+          Aqui estão os exemplos de dígitos de uma chave pública e privada de 512 caracteres
+          em formato hexadecimal:
+
+          Chave pública:
+          Dígito 1: 7A
+          Dígito 2: B2
+          Dígito 3: F8
+          ...
+          Dígito 128: C6
+        
+          Chave privada:
+          Dígito 1: D4
+          Dígito 2: 91
+          Dígito 3: E7
+          ...
+          Dígito 128: 2F
+
+          Vale ressaltar que esses são apenas exemplos fictícios e não representam chaves reais.
+          As chaves públicas e privadas do RSA são muito mais poderosas, longas e complexas.
+          <div class="scroll-down-arrow"></div> 
+        </p>
+        
+      </div>
+
+    </div>
+
+    <div class="explanation">
+      <h2>Cálculo do módulo "n":</h2>
+      <div class="code-animation">
+<p class="fade-in">O próximo passo é calcular o módulo "n", que é o produto dos números primos "p" e "q". Em termos
+matemáticos, n = p * q. Esse valor é utilizado tanto na chave pública quanto na chave privada.
+Portanto, "n" é um número bastante grande e difícil de ser fatorado, o que contribui para segurança
+do RSA.
+</p>
+<p class="fade-in">O cálculo do Módulo "N" é feito pelo Cálculo da função totiente de Euler (φ)</p>
+        <p class="fade-in">Print("Veja no próximo slide como é feito")</p>
+        
+      
+      </div>
+      
+      
+    </div>
+
+<div class="explanation">
+<h2>Cálculo da função totiente de Euler (φ):</h2>
+<div class="code-animation">
+<p class="fade-in">A função totiente de Euler, representada por φ(n), é calculada com base nos números primos
+<p style="color: rgb(255, 90, 255);" class="fade-in">"p" e "q". </p>
+<p class="fade-in"> função retorna a quantidade de números
+<p class="fade-in" style="color:rgb(255, 90, 255);">positivos menores que "n" e coprimos com "n", ou seja,
+números que não possuem fatores comuns com "n".</p>
+<p class="fade-in">No RSA, a função totiente de Euler é
+utilizada para garantir a propriedade matemática necessária para a criptografia.</p>
+<p class="typing-effect">Print("Euler era um GÊNIO!")</p>
+<div class="scroll-down-arrow"></div>
+   
+    </div>
+    <p style="color: #0f0;" class="fade-in">
+        Para calcular φ(n), onde n é um número inteiro positivo, precisamos decompor n em seus fatores primos. Se n é expresso como o produto de números primos distintos elevados a certas potências, por exemplo:</p>
+        <p style="color: rgb(255, 90, 255);" class="fade-in">n = p^a * q^b * r^c</p>
+        <p style="color: #0f0;" class="fade-in">então φ(n) pode ser calculado da seguinte forma: </p>
+        <p style="color: rgb(255, 90, 255)" class="fade-in">φ(n) = (p^a - p^(a-1)) * (q^b - q^(b-1)) * (r^c - r^(c-1))</p>
+    </p>
+    
+    <p style="color: #fff;" class="typewriter">Nem a Calculadora do Windows aguentou, muito menos uma calculadora WEB</p>
+      <div class="scroll-down-arrow"></div>
+      <div class="flex">
+        <img class="fade-in" src="images/calculorsa.png" alt="800px" width="200">
+      <img class="fade-in" src="images/calculorsawindows.png" alt="800px" width="200px"></div>
+    
+    </div>
+    <div>
+      
+      
+    </div>
+      
+
+    <div class="explanation">
+      <h2>Criptografia</h2>
+      <div class="code-animation">
+        <p class="typing-effect">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</p> 
+        <p class="typing-effect" style="color:rgb(255, 90, 255)">A criptografia com RSA funciona da seguinte forma:</p>
+
+<p class="fade-in">Geração das chaves: O primeiro passo é gerar um par de chaves, uma pública e uma privada.
+Isso é feito escolhendo dois números primos grandes, chamados de "p" e "q". Esses números
+são mantidos em segredo. Em seguida, calcula-se o módulo "n" como o produto de "p" e "q"
+e a função totiente de Euler (φ) com base nos valores de "p" e "q".</p>
+          
+<p class="fade-in" style="color:rgb(255, 90, 255)">Escolha da chave pública: A chave pública consiste em um par de números representados por
+(e, n). O número "e" é escolhido como um expoente público que é coprimo com φ(n).
+Normalmente, utiliza-se um valor fixo para "e", como 65537, que é um número primo
+comummente utilizado na prática.
+A chave pública é compartilhada livremente com outras pessoas.</p>
+          
+<p class="fade-in">Cifragem: Para criptografar uma mensagem, o remetente a divide em blocos numéricos menores.
+Cada bloco é elevado à potência "e" e reduzido módulo "n". O resultado é a mensagem
+criptografada, que pode ser enviada de forma segura para o destinatário.</p>
+        
+        <p class="typing-effect">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</p> 
+      </div>
+    </div>
+
+
+    <div class="explanation">
+      <h2>Descriptografia</h2>
+      <div class="code-animation">
+        <p class="typing-effect">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</p> 
+        <p class="typing-effect" style="color:rgb(255, 90, 255)">A descriptografia com RSA funciona da seguinte forma:</p>
+
+<p class="fade-in">Cálculo da chave privada: A chave privada consiste em um par de números representados por (d, n).
+O número "d" é o inverso multiplicativo de "e" módulo φ(n). Com a posse da chave privada,
+o destinatário pode descriptografar as mensagens criptografadas.</p>
+          
+<p class="fade-in" style="color:rgb(255, 90, 255)">Descriptografia: Para descriptografar a mensagem criptografada
+o destinatário eleva cada bloco criptografado à potência "d" e reduz módulo "n". O resultado é a
+mensagem original que pode ser reconstituída a partir dos blocos decifrados.</p>
+          
+<p class="fade-in">O algoritmo RSA é considerado seguro devido à dificuldade de fatorar o número "n" em seus primos
+constituintes, o que torna impraticável a obtenção da chave privada a partir da chave pública.
+A segurança do RSA está fundamentada na complexidade do
+problema da fatoração de números grandes em primos.</p>
+        
+        <p class="typing-effect">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</p> 
+      </div>
+    </div>
+
+
+    <div class="explanation">
+      <div class="explanation.hidden">
+      <h2>Parte Prática</h2>
+      <div class="code-animation">
+        <p class="typing-effect">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</p> 
+        <p>Bom, é muito importante que você tenha aprendido pelo menos o básico da explicação para
+a próxima etapa, OK?
+
+<p class="typing-effect" style="color: rgb(255, 90, 255);;">Qualquer Coisa, aperte em "Anterior" caso tenha ficado alguma dúvida</p>
+        </p>
+<p>Aperta no Start para irmos á aplicação de Criptografia e Descriptografia</p>
+        <p class="typing-effect">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</p> 
+      </div>
+
+      <div>
+        <center><a href="4-rsacalculo.html" style="font-size: 26px; padding: 20px 30px; background-color: rgb(9, 94, 7); color: #fff; text-decoration: none; border-radius: 8px;">START</a>
+        </center>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    
+
+
+    <div>
+      <button class="btn" onclick="previousExplanation()">Anterior</button>
+      <button class="btn" onclick="nextExplanation()">Próxima</button>
+    </div>
+  </div>
+
+  <script>
+    var explanations = document.getElementsByClassName('explanation');
+    var currentExplanation = 0;
+
+    function showExplanation(index) {
+      for (var i = 0; i < explanations.length; i++) {
+        explanations[i].style.display = 'none';
+        explanations[i].classList.add('hidden');
+      }
+
+      explanations[index].style.display = 'block';
+      setTimeout(function() {
+        explanations[index].classList.remove('hidden');
+      }, 100);
+    }
+
+    function nextExplanation() {
+      if (currentExplanation < explanations.length - 1) {
+        currentExplanation++;
+        showExplanation(currentExplanation);
+      }
+    }
+
+    function previousExplanation() {
+      if (currentExplanation > 0) {
+        currentExplanation--;
+        showExplanation(currentExplanation);
+      }
+    }
+    showExplanation(currentExplanation);
+  </script>
+</body>
+
+</html>
